@@ -1,0 +1,23 @@
+apiVersion: apps/v1 # Where in the API it resides
+kind: Deployment # The kind of workload we're creating
+metadata:
+  name: nodejsexpress # This will be the name of the deployment
+  namespace: default
+  labels: 
+    app: nodejsexpress # This is the label that will be used to match the deployment to the pod
+
+spec: 
+  replicas: 1
+  selector: 
+    matchLabels: 
+      app: nodejsexpress # This is the label that will be used to match the deployment to the pod
+  template:
+    metadata:
+      labels:
+        app: nodejsexpress # This is the label that will be used to match the deployment to the pod
+    spec:
+      containers:
+      - name: nodejsexpress
+        image: tyroneregistry.azurecr.io/nodejsexpress:v1 # This is the image that will be used to create the pod
+        ports: 
+        - containerPort: 3000 # This is the port that the container will be listening on
