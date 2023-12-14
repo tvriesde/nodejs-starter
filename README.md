@@ -2,4 +2,4 @@
 
 Simple containerized nodejs rest api based on express framework.
 
-Deploy using helm.
+Deploy on AKS using helm.
